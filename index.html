@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>个人博客 | 蜡笔小新主题博客</title>
+    <!-- 引入外部资源 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    
+    <!-- 自定义Tailwind配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        xiaoxin: {
+                            yellow: '#FFD100', // 小新黄色
+                            red: '#E6212A',    // 小新红色
+                            blue: '#00AEEF',   // 小新蓝色
+                            gray: '#F5F5F5',   // 背景灰
+                        },
+                    },
+                    fontFamily: {
+                        cartoon: ['Comic Sans MS', 'Marker Felt', '微软雅黑', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- 自定义样式 -->
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            }
+            .cartoon-border {
+                border: 3px solid #000;
+                border-radius: 8px;
+                box-shadow: 4px 4px 0 #000;
+            }
+            .hover-jump {
+                transition: transform 0.2s ease;
+            }
+            .hover-jump:hover {
+                transform: translateY(-5px);
+            }
+        }
+    </style>
+</head>
+
+<body class="font-cartoon bg-xiaoxin-gray min-h-screen">
+    <!-- 导航栏 -->
+    <header class="sticky top-0 z-50 bg-xiaoxin-yellow border-b-4 border-black">
+        <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- 博客LOGO -->
+            <div class="flex items-center gap-2">
+                <img src="1.jpg" alt="蜡笔小新头像" class="w-12 h-12 rounded-full border-2 border-black">
+                <h1 class="text-2xl md:text-3xl font-bold text-black">个人博客</h1>
+            </div>
+            
+            <!-- 桌面端导航 -->
+            <ul class="hidden md:flex gap-6 text-lg font-bold">
+                <li><a href="#home" class="hover:text-xiaoxin-red transition-colors">首页</a></li>
+                <li><a href="#blog" class="hover:text-xiaoxin-red transition-colors">博客</a></li>
+                <li><a href="#about" class="hover:text-xiaoxin-red transition-colors">关于我</a></li>
+                <li><a href="#contact" class="hover:text-xiaoxin-red transition-colors">联系我</a></li>
+            </ul>
+            
+            <!-- 移动端菜单按钮 -->
+            <button id="menuBtn" class="md:hidden text-2xl">
+                <i class="fa fa-bars"></i>
+            </button>
+        </nav>
+        
+        <!-- 移动端导航菜单 -->
+        <div id="mobileMenu" class="md:hidden hidden bg-white border-b-4 border-black">
+            <ul class="container mx-auto px-4 py-2 flex flex-col gap-3 text-lg font-bold">
+                <li><a href="#home" class="block py-2 hover:text-xiaoxin-red transition-colors">首页</a></li>
+                <li><a href="#blog" class="block py-2 hover:text-xiaoxin-red transition-colors">博客</a></li>
+                <li><a href="#about" class="block py-2 hover:text-xiaoxin-red transition-colors">关于我</a></li>
+                <li><a href="#contact" class="block py-2 hover:text-xiaoxin-red transition-colors">联系我</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- 英雄区 -->
+    <section id="home" class="bg-xiaoxin-blue py-12 md:py-20">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center gap-8">
+            <div class="md:w-1/2">
+                <h2 class="text-[clamp(2rem,5vw,3.5rem)] font-bold text-white text-shadow mb-4">
+                   
+                    <span class="text-xiaoxin-yellow">欢迎来到我的个人博客</span>
+                </h2>
+                <p class="text-xl text-white mb-8">
+                    记录我的快乐时光✨<br>
+                    喜欢出去玩，吃好吃的，看电视
+                </p>
+                <a href="#blog" class="inline-block bg-xiaoxin-yellow text-black font-bold text-xl px-8 py-3 cartoon-border hover-jump">
+                    查看我的日记
+                </a>
+            </div>
+            <div class="md:w-1/2">
+                <img src="2.jpg" alt="蜡笔小新" class="w-full h-auto cartoon-border">
+            </div>
+        </div>
+    </section>
+
+    <!-- 博客列表 -->
+    <section id="blog" class="py-12 container mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-10">
+            <span class="inline-block border-b-4 border-xiaoxin-yellow pb-2">秦容的博客日记</span>
+        </h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- 博客卡片1 -->
+            <article class="bg-white cartoon-border p-6 hover-jump">
+                <div class="mb-4 overflow-hidden rounded-lg">
+                    <img src="https://picsum.photos/seed/xiaoxin1/600/400" alt="和小白的散步日记" class="w-full h-48 object-cover transition-transform hover:scale-105">
+                </div>
+                <div>
+                    <span class="inline-block bg-xiaoxin-yellow text-black text-sm font-bold px-3 py-1 mb-3">日常</span>
+                    <h3 class="text-2xl font-bold mb-2">游玩日记</h3>
+                    <p class="text-gray-700 mb-4">
+                        今天带小白去公园散步，它又跑去追小母猫了😿 不过我买了最喜欢的巧克力饼干，分给小白一点点...就一点点哦！
+                    </p>
+                    <a href="#" class="inline-block text-xiaoxin-red font-bold hover:underline">
+                        阅读全文 <i class="fa fa-arrow-right"></i>
+                    </a>
+                </div>
+            </article>
+            
+            <!-- 博客卡片2 -->
+            <article class="bg-white cartoon-border p-6 hover-jump">
+                <div class="mb-4 overflow-hidden rounded-lg">
+                    <img src="https://picsum.photos/seed/xiaoxin2/600/400" alt="动感超人新剧集" class="w-full h-48 object-cover transition-transform hover:scale-105">
+                </div>
+                <div>
+                    <span class="inline-block bg-xiaoxin-blue text-white text-sm font-bold px-3 py-1 mb-3">动漫</span>
+                    <h3 class="text-2xl font-bold mb-2">动感超人新剧集</h3>
+                    <p class="text-gray-700 mb-4">
+                        今天看了动感超人的新剧集，打败了可怕的怪兽！妈妈不让我看太久电视，我偷偷躲在房间里看，结果被发现了😜
+                    </p>
+                    <a href="#" class="inline-block text-xiaoxin-red font-bold hover:underline">
+                        阅读全文 <i class="fa fa-arrow-right"></i>
+                    </a>
+                </div>
+            </article>
+            
+            <!-- 博客卡片3 -->
+            <article class="bg-white cartoon-border p-6 hover-jump">
+                <div class="mb-4 overflow-hidden rounded-lg">
+                    <img src="https://picsum.photos/seed/xiaoxin3/600/400" alt="幼稚园的便当" class="w-full h-48 object-cover transition-transform hover:scale-105">
+                </div>
+                <div>
+                    <span class="inline-block bg-xiaoxin-red text-white text-sm font-bold px-3 py-1 mb-3">美食</span>
+                    <h3 class="text-2xl font-bold mb-2">幼稚园的便当</h3>
+                    <p class="text-gray-700 mb-4">
+                        美伢做的便当里有我最爱的章鱼香肠！正男想吃我的香肠，我用饼干和他交换了，妮妮说我小气鬼😝
+                    </p>
+                    <a href="#" class="inline-block text-xiaoxin-red font-bold hover:underline">
+                        阅读全文 <i class="fa fa-arrow-right"></i>
+                    </a>
+                </div>
+            </article>
+        </div>
+        
+        <!-- 加载更多 -->
+        <div class="text-center mt-10">
+            <button class="bg-xiaoxin-yellow text-black font-bold text-lg px-8 py-3 cartoon-border hover-jump">
+                加载更多日记 <i class="fa fa-refresh"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- 关于博主 -->
+    <section id="about" class="bg-xiaoxin-yellow py-12">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-10">
+                <span class="inline-block border-b-4 border-black pb-2">关于小新</span>
+            </h2>
+            
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="md:w-1/3">
+                    <img src="https://picsum.photos/seed/xiaoxin-about/400/400" alt="蜡笔小新头像" class="w-full h-auto rounded-full border-4 border-black">
+                </div>
+                <div class="md:w-2/3">
+                    <h3 class="text-2xl font-bold mb-4">大家好，我是野原新之助！</h3>
+                    <ul class="space-y-3 text-lg">
+                        <li><i class="fa fa-user-circle text-xiaoxin-red mr-2"></i> 年龄：5岁</li>
+                        <li><i class="fa fa-home text-xiaoxin-red mr-2"></i> 住址：春日部市</li>
+                        <li><i class="fa fa-graduation-cap text-xiaoxin-red mr-2"></i> 学校：双叶幼稚园向日葵班</li>
+                        <li><i class="fa fa-heart text-xiaoxin-red mr-2"></i> 喜欢：娜娜子姐姐、动感超人、巧克力饼干、小白</li>
+                        <li><i class="fa fa-times-circle text-xiaoxin-red mr-2"></i> 讨厌：青椒、胡萝卜、收拾玩具</li>
+                        <li><i class="fa fa-quote-left text-xiaoxin-red mr-2"></i> 口头禅：いただきます！パリッパリ！</li>
+                    </ul>
+                    
+                    <div class="mt-6 flex gap-4">
+                        <a href="#" class="w-12 h-12 rounded-full bg-xiaoxin-red flex items-center justify-center text-white text-2xl hover-jump">
+                            <i class="fa fa-weibo"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 rounded-full bg-xiaoxin-blue flex items-center justify-center text-white text-2xl hover-jump">
+                            <i class="fa fa-wechat"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 rounded-full bg-black flex items-center justify-center text-white text-2xl hover-jump">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我 -->
+    <section id="contact" class="py-12 container mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-10">
+            <span class="inline-block border-b-4 border-xiaoxin-yellow pb-2">给小新留言</span>
+        </h2>
+        
+        <div class="max-w-2xl mx-auto bg-white cartoon-border p-8">
+            <form>
+                <div class="mb-6">
+                    <label for="name" class="block text-lg font-bold mb-2">你的名字</label>
+                    <input type="text" id="name" class="w-full px-4 py-3 border-2 border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-xiaoxin-yellow" placeholder="告诉我你是谁～">
+                </div>
+                
+                <div class="mb-6">
+                    <label for="message" class="block text-lg font-bold mb-2">留言内容</label>
+                    <textarea id="message" rows="5" class="w-full px-4 py-3 border-2 border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-xiaoxin-yellow" placeholder="想和小新说什么？"></textarea>
+                </div>
+                
+                <button type="submit" class="w-full bg-xiaoxin-red text-white font-bold text-xl py-3 cartoon-border hover-jump">
+                    发送留言 <i class="fa fa-paper-plane"></i>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-black text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-xl font-bold">小新的快乐日记 © 2025</p>
+                    <p class="text-gray-400">いただきます！パリッパリ！</p>
+                </div>
+                <div class="flex gap-4">
+                    <a href="#home" class="text-white hover:text-xiaoxin-yellow transition-colors">首页</a>
+                    <a href="#blog" class="text-white hover:text-xiaoxin-yellow transition-colors">博客</a>
+                    <a href="#about" class="text-white hover:text-xiaoxin-yellow transition-colors">关于我</a>
+                    <a href="#contact" class="text-white hover:text-xiaoxin-yellow transition-colors">联系我</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 移动端菜单切换
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            // 切换菜单图标
+            const icon = menuBtn.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.replace('fa-bars', 'fa-times');
+            } else {
+                icon.classList.replace('fa-times', 'fa-bars');
+            }
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // 关闭移动端菜单
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                        menuBtn.querySelector('i').classList.replace('fa-times', 'fa-bars');
+                    }
+                }
+            });
+        });
+        
+        // 滚动时导航栏效果
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-md');
+            } else {
+                header.classList.remove('shadow-md');
+            }
+        });
+    </script>
+
+
+</body>
+</html>
